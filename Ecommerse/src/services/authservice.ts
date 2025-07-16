@@ -12,16 +12,10 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'https://fakestoreapi.com/auth/login'
+  apiUrl = 'https://dummyjson.com/auth/login'
 
-  
-  
 
   login(user:{email:string,password:string}):Observable<any>{
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
 
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
