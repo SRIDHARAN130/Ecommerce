@@ -21,7 +21,7 @@ export class Authservice {
       'Content-Type': 'application/json'
     });
 
-        return this.http.post<{token:string}>(this.apiUrl,user).pipe(
+        return this.http.post<{token:string}>(this.apiUrl,user,{ headers }).pipe(
           map((res)=>{
               localStorage.setItem('tokenKey',res.token)
               console.log('token :',res.token)
