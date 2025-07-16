@@ -1,0 +1,7 @@
+{
+    "outputDirectory": "dist/Ecommerse/browser",
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
+  
