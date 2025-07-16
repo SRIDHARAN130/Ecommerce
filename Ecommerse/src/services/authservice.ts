@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, map, Observable, of } from 'rxjs';
+import { catchError, delay, map, Observable, of, throwError } from 'rxjs';
 // import {login} form 'src/models/login'
 
 @Injectable({
@@ -28,6 +28,10 @@ export class Authservice {
               localStorage.setItem('tokenKey',res.token)
               console.log('token :',res.token)
               return of(res.token)
+        }),
+        catchError(err => {
+          console.error('Login failed:', err);
+          return throwError(() => new Error('Login request failed'));
         }))
   }
 

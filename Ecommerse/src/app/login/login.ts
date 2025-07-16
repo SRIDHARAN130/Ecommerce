@@ -33,6 +33,9 @@ export class Login implements OnInit{
         if(res.token){
             this.router.navigate(['/dashboard'])
         }
+      },
+      error:err=>{
+        console.log('error',err.message)
       }
     })
 
