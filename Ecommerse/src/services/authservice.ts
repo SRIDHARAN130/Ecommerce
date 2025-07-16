@@ -12,23 +12,31 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'https://dummyjson.com/auth/login'
+  // apiUrl = 'https://dummyjson.com/auth/login'
 
 
-  login(user:{username:string,password:string}):Observable<any>{
+  // login(user:{username:string,password:string}):Observable<any>{
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+  //       return this.http.post<{token:string}>(this.apiUrl,user).pipe(
+  //         map((res)=>{
+  //             localStorage.setItem('tokenKey',res.token)
+  //             console.log('token :',res.token)
+  //             return res
+  //       }),
+  //      )
+  // }
 
-        return this.http.post<{token:string}>(this.apiUrl,user,{ headers }).pipe(
-          map((res)=>{
-              localStorage.setItem('tokenKey',res.token)
-              console.log('token :',res.token)
-              return res
-        }),
-       )
+  login(user: { name: string; password: string }): Observable<any> {
+    if (user.name === 'admin' && user.password === '123') {
+      const fakeToken = 'hardcoded-jwt-token';
+      localStorage.setItem('tokenKey', fakeToken);
+      console.log('token:', fakeToken);
+      return of(fakeToken); // success
+    } else {
+      return throwError(() => new Error('Invalid credentials')); // error
+    }
   }
+  
 
   isAuthenticated(): boolean{
       return !!localStorage.getItem(this.tokenKey)
