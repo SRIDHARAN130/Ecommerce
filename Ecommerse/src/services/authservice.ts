@@ -12,7 +12,7 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'https://reqres.in/api/login'
+  apiUrl = 'POST https://fakestoreapi.com/auth/login'
 
   
   
