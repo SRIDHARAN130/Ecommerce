@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, map, Observable, of } from 'rxjs';
 // import {login} form 'src/models/login'
@@ -18,6 +18,11 @@ export class Authservice {
   
 
   login(user:{email:string,password:string}):Observable<any>{
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
               localStorage.setItem('tokenKey',res.token)
