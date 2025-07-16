@@ -19,7 +19,7 @@ export class Login implements OnInit{
   ngOnInit(): void {
       this.formValues = this.fb.group({
         email:['mor_2314',Validators.required],
-        password:['83r5^_',[Validators.required,Validators.minLength(8)]]
+        password:['83r5^_',Validators.required]
       })
   }
 
