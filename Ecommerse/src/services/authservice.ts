@@ -15,7 +15,7 @@ export class Authservice {
   apiUrl = 'https://dummyjson.com/auth/login'
 
 
-  login(user:{email:string,password:string}):Observable<any>{
+  login(user:{username:string,password:string}):Observable<any>{
 
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
