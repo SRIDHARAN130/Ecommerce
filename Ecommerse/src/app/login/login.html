@@ -1,0 +1,19 @@
+<div class="container">
+<form class="form" [formGroup]="formValues" (ngSubmit)="submit()">
+
+    <h3 style="display:flex;justify-content: center;">Login</h3>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" formControlName="name" placeholder="Enter your Name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="text" name="password" formControlName="password" placeholder="Enter your Password">
+  </mat-form-field>
+
+  <button type="submit" class="button" mat-raised-button>Submit</button>
+</form>
+</div>  
+
