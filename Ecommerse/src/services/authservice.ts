@@ -12,10 +12,12 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'https://localhost:3000/api/users'
+  apiUrl = 'https://reqres.in/api/login'
+
+  
   
 
-  login(user:{name:string,password:string}):Observable<any>{
+  login(user:{email:string,password:string}):Observable<any>{
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
               localStorage.setItem('tokenKey',res.token)

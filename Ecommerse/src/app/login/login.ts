@@ -18,17 +18,17 @@ export class Login implements OnInit{
 
   ngOnInit(): void {
       this.formValues = this.fb.group({
-        name:['',Validators.required],
-        password:['',[Validators.required,Validators.minLength(8)]]
+        email:['eve.holt@reqres.in',Validators.required],
+        password:['cityslicka',[Validators.required,Validators.minLength(8)]]
       })
   }
 
   submit(){
     console.log(this.formValues.value)
 
-    const {name,password} = this.formValues.value
+    const {email,password} = this.formValues.value
 
-    this.auth.login( {name,password} ).subscribe({
+    this.auth.login( {email,password} ).subscribe({
       next:(res)=>{
         if(res.token){
             this.router.navigate(['/dashboard'])
