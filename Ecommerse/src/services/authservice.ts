@@ -17,16 +17,15 @@ export class Authservice {
 
   login(user:{username:string,password:string}):Observable<any>{
 
+    
+
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
               localStorage.setItem('tokenKey',res.token)
               console.log('token :',res.token)
-              return of(res.token)
+              return res
         }),
-        catchError(err => {
-          console.error('Login failed:', err);
-          return throwError(() => new Error('Login request failed'));
-        }))
+       )
   }
 
   isAuthenticated(): boolean{
