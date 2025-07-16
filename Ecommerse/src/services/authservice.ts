@@ -17,7 +17,9 @@ export class Authservice {
 
   login(user:{username:string,password:string}):Observable<any>{
 
-    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
         return this.http.post<{token:string}>(this.apiUrl,user).pipe(
           map((res)=>{
