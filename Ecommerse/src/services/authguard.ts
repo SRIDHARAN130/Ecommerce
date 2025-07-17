@@ -11,12 +11,16 @@ export class Authguard implements CanActivate {
 
 
   canActivate() :boolean {
-   if(this.auth.isAuthenticated()){
-    return true
-   }
-   else{
-    return false
-   }
+    const isAuth = this.auth.isAuthenticated();
+    console.log('Guard: isAuthenticated =', isAuth);
+    return isAuth;
+  //  if(this.auth.isAuthenticated()){
+  //   console.log(this.auth.isAuthenticated())
+  //   return true
+  //  }
+  //  else{
+  //   return false
+  //  }
   }
   
 }

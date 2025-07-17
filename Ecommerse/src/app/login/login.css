@@ -4,14 +4,20 @@
     align-items: center;
     justify-content: center;
     background-image: url('/assets/images/back.png');
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  
 }
 
 .form{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 25%;
-    padding: 10px;
+    gap: 1rem;
+    width: 60%;
+    max-width: 300px;
+    padding: 2rem;
     border-radius: 10px;
     border: 1px solid gray;
     box-shadow: 0px 0px 4px 4px lightblue;
@@ -19,13 +25,18 @@
 }
 
 .button{
-    display: block;
-    margin: 1px auto;
-    padding: auto;
-    
-    width: 27%;
-    border-radius: 10px;
-    color: blue;
-    justify-content: center;
-    background-color: rgb(127, 163, 255) !important;
+    align-self: center;
+    width: 30%;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(63, 81, 181) !important; 
 }
+
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  

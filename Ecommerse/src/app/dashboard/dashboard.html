@@ -1,1 +1,47 @@
-<p>dashboard works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <mat-toolbar color="primary" class="sidenav-toolbar">DASHBOARD</mat-toolbar>
+        <mat-nav-list>
+          <a mat-list-item routerLink="home"  routerLinkActive="active-link">        
+           <span class="list-items">
+            <mat-icon color="primary">home</mat-icon>
+            Home</span>
+          </a>
+
+          <a mat-list-item routerLink="products" class="list-items" routerLinkActive="active-link">
+           <span class="list-items">
+            <mat-icon color="primary">inventory_2</mat-icon>
+             Products</span>
+          </a>
+
+
+          <a mat-list-item routerLink="orders" class="list-items" routerLinkActive="active-link">
+           <span class="list-items">         
+            <mat-icon color="primary">receipt_long</mat-icon> 
+               Orders
+           </span>
+          </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar class="toolbar" color="primary">
+            <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+
+            <div class="logout">
+            <button mat-icon-button  (click)="logout()">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+        </mat-toolbar>
+
+        <div class="main-content">
+            <router-outlet />
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

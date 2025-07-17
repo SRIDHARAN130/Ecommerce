@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, delay, map, Observable, of, throwError } from 'rxjs';
 // import {login} form 'src/models/login'
 
@@ -39,7 +40,7 @@ export class Authservice {
   
 
   isAuthenticated(): boolean{
-      return !!localStorage.getItem(this.tokenKey)
+      return !!localStorage.getItem('tokenKey')
   }
 
   getToken(): string|null{
@@ -47,6 +48,6 @@ export class Authservice {
   }
 
   logout(){
-    return localStorage.removeItem(this.tokenKey)
+    return localStorage.removeItem('tokenKey')
   }
 }
