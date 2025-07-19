@@ -18,7 +18,7 @@ export class Login implements OnInit{
 
   ngOnInit(): void {
       this.formValues = this.fb.group({
-        name:['admin',Validators.required],
+        email:['admin@gmail.com',Validators.required],
         password:['123',Validators.required]
       })
 
@@ -27,9 +27,9 @@ export class Login implements OnInit{
   submit(){
     console.log(this.formValues.value)
 
-    const {name,password} = this.formValues.value
+    const {email,password} = this.formValues.value
 
-    this.auth.login( {name,password} ).subscribe({
+    this.auth.login( {email,password} ).subscribe({
       next:(token)=>{     
         console.log('Login successful, token:', token);
       console.log(this.auth.isAuthenticated())

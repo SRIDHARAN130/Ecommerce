@@ -19,5 +19,8 @@ logout(){
 
 }
 
-  
+cart(){
+  this.router.navigate(['/carts'])
 }
+  
+} 

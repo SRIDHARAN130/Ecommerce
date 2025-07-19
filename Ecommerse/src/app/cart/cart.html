@@ -1,0 +1,25 @@
+<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;" >
+
+    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Your Cart</p>
+   
+   <div class="card-container">
+
+<mat-card class="card" *ngFor="let cart of carts">
+
+    <diV class="group">
+  <img class="img" [src]="cart.image" alt="product img">
+    <mat-card-header>
+    <mat-card-title>{{cart.title}}</mat-card-title>
+    <mat-card-subtitle>{{cart.price}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions>
+        <button class="button" mat-raised-button color="warn" (click)="order(cart)">Buy Now</button>
+    </mat-card-actions>
+</diV>
+<!-- {{mobile.id}} -->
+</mat-card>
+</div>
+</div>
+
+

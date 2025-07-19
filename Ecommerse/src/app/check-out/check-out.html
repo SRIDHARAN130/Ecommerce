@@ -1,0 +1,27 @@
+
+
+<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;" >
+
+    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">CheckOut</p>
+
+<button mat-raised-button (click)="show()" color="warn" style="margin-bottom: 25px;">Show My Checklist</button>
+   
+   <div class="card-container" *ngIf="see">
+
+<mat-card class="card" *ngFor="let mobile of mobiles">
+
+    <diV class="group">
+  <img class="img" [src]="mobile.image" alt="product img">
+    <mat-card-header>
+    <mat-card-title>{{mobile.title}}</mat-card-title>
+    <mat-card-subtitle>{{mobile.price}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions>
+        <button class="button" mat-raised-button color="warn" (click)="order(mobile)">Buy Now</button>
+    </mat-card-actions>
+</diV>
+<!-- {{mobile.id}} -->
+</mat-card>
+</div>
+</div>

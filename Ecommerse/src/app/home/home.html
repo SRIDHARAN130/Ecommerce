@@ -4,55 +4,20 @@
 
 <div class="card-container">
 
-    <mat-card class="card">
-        <img mat-card-img class="img" src="/assets/images/mobile.jpg" alt="mobile image">
+    <mat-card class="card" *ngFor="let mobile of mobiles"> 
+        <img mat-card-img class="img" [src]="mobile.image" alt="mobile image">
         <mat-card-content>
-            <p>Realme p3</p>
-            <strong>from 15999</strong>
-            <mat-card-actions> 
-                  <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-            </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-card class="card">
-        <img mat-card-img class="img" src="/assets/images/poco.jpg" alt="mobile image">
-        <mat-card-content>
-            <p>POCO F7</p>
-            <strong>from 29999</strong>
-            <mat-card-actions>
-      
-        <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-            </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-card class="card">
-        <img mat-card-img class="img" src="/assets/images/oppo.jpg" alt="mobile image">
-        <mat-card-content>
-            <p>Oppo k13</p>
-            <strong>from 16000</strong>
-            <mat-card-actions>
-      
-        <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-            </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-card class="card">
-        <img mat-card-img class="img" src="/assets/images/vivo.jpg" alt="mobile image">
-        <mat-card-content>
-            <p>Vivo T4</p>
-            <strong>from 20000</strong>
-            <mat-card-actions>
-      
-        <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
+            <p>{{mobile.title}}</p>
+            <strong>from {{mobile.price}}</strong>
+            <mat-card-actions style="display: flex;flex-direction: column; gap: 10px;"> 
+                  <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                  <button mat-raised-button  color="primary" (click)="carts(mobile)">cart</button>
             </mat-card-actions>
         </mat-card-content>
     </mat-card>
     </div>
 </div>
- &nbsp;&nbsp;&nbsp;
+ <!-- &nbsp;&nbsp;&nbsp;
 <div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;">
 
     <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Trending Gadgets & Appliances</p>
@@ -106,5 +71,5 @@
            </mat-card-content>
        </mat-card>
        </div>
-   </div>
+   </div> -->
 
