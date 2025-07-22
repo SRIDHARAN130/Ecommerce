@@ -1,25 +1,31 @@
 <div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;" >
 
-    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Your Cart</p>
+    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Cart</p>
    
-   <div class="card-container">
-
-<mat-card class="card" *ngFor="let cart of carts">
-
-    <diV class="group">
-  <img class="img" [src]="cart.image" alt="product img">
-    <mat-card-header>
-    <mat-card-title>{{cart.title}}</mat-card-title>
-    <mat-card-subtitle>{{cart.price}}</mat-card-subtitle>
-    </mat-card-header>
-
-    <mat-card-actions>
-        <button class="button" mat-raised-button color="warn" (click)="order(cart)">Buy Now</button>
-    </mat-card-actions>
-</diV>
-<!-- {{mobile.id}} -->
-</mat-card>
+    <div class="card-container" *ngIf="carts && carts.length > 0;else noData">
+        <mat-card class="card" *ngFor="let cart of carts">
+          <div class="group">
+            <img class="img" [src]="cart.image_url" alt="product img" />
+    
+            <div class="details">
+               <mat-card-content>
+                <p>{{ cart.name }}</p>
+                <p><strong>From ₹{{ cart.price }}</strong></p>
+                <p>{{ cart.description }}</p>
+            </mat-card-content>
+    
+              <mat-card-actions>
+                <button class="button" mat-raised-button color="primary" (click)="checkout(cart)">Buy Now</button>
+                <button class="button" mat-raised-button color="warn" (click)="remove(cart)">Remove</button>
+              </mat-card-actions>
+            </div>
+          </div>
+        </mat-card>
+      </div>
 </div>
-</div>
 
-
+<ng-template #noData>
+  <div  style="text-align: center;font-size: 2rem;">
+    <strong>Your Cart is Empty</strong> 
+  </div>
+  </ng-template>

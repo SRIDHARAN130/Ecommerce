@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from '../models/product';
 
 export interface products{
   id:number,
@@ -19,8 +20,8 @@ export class Checkout {
 
   // public product$:Observable<products[]> = this.productsSub$.asObservable()
 
-   sendProduct(product:products){
-        this.mobiles.push(product)
+   sendProduct(product:Product){
+        // this.mobiles.push(product)
 
         // this.productsSub$.next(this.mobiles)
    }

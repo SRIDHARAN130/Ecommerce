@@ -1,0 +1,27 @@
+
+
+<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;height: 75%;" >
+
+    <!-- <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">CheckOut</p> -->
+   
+    <div class="card-container" *ngIf="mobiles && mobiles.length > 0">
+        <mat-card class="card">
+          <div class="group">
+            <img class="img" [src]="mobiles[0].image_url" alt="product img" />
+    
+            <div class="details">
+               <mat-card-content>
+                <span style="font-size: 2.5rem;"><strong>{{ mobiles[0].name }}</strong></span>
+                <p style="font-size: 1.5rem;"><strong>₹{{ mobiles[0].price }}</strong></p>
+                <p style="font-size: 1.4rem;"><strong></strong>{{ mobiles[0].description }}</p>
+            </mat-card-content>
+    
+              <mat-card-actions>
+                <button class="button" mat-raised-button color="warn" (click)="order(mobiles[0])">Buy Now</button>
+              </mat-card-actions>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+</div>
+

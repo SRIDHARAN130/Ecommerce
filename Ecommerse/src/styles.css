@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.mdc-tab {
+    height: 100px !important;
+    width: 100px !important;
+
+  }
+
+  .mat-mdc-dialog-container .mat-mdc-dialog-title+.mat-mdc-dialog-content{
+    display: contents;
+  }
+
+
+  

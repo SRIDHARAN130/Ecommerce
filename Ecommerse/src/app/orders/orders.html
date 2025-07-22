@@ -1,25 +1,40 @@
 <div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;" >
 
-    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Your Orders</p>
+    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Orders</p>
    
-   <div class="card-container">
+    <div class="card-container" *ngIf="orders && orders.length > 0;else noData">
+        <mat-card class="card" *ngFor="let order of orders">
+          <div class="group">
+            <img class="img" [src]="order.image_url" alt="product img" />
+    
+            <div class="details">
+               <mat-card-content>
+                <p>{{order.name }}</p>
+                <p><strong>Amount to Pay  ₹{{order.price }}</strong></p>
+                <p>{{order.description }}</p>
+            
+                <div style="display: flex;flex-direction: column;gap: 1rem;padding-top: 20px;">
+            <strong>Delivery Info : </strong>
 
-<mat-card class="card" *ngFor="let order of orders">
-
-    <diV class="group">
-  <img class="img" [src]="order.image" alt="product img">
-    <mat-card-header>
-    <mat-card-title>{{order.title}}</mat-card-title>
-    <mat-card-subtitle>{{order.price}}</mat-card-subtitle>
-    </mat-card-header>
-
-    <!-- <mat-card-actions>
-        <button class="button" mat-raised-button color="warn">Buy Now</button>
-    </mat-card-actions> -->
-</diV>
-<!-- {{mobile.id}} -->
-</mat-card>
+                <div *ngFor="let profile of profiles">
+                    <span>{{profile.name}}</span>
+                    <p>{{profile.address}}</p>
+                    <p>{{profile.mobile}}</p>
+                </div>
+               <div><strong>Payment Type :</strong> {{order.payment_type}}</div>
+                </div>               
+            </mat-card-content>
+              <mat-card-actions>
+                <button class="button" mat-raised-button color="warn" (click)="remove(order)">Cancel Order</button>
+              </mat-card-actions>
+            </div>
+          </div>
+        </mat-card>
+      </div>
 </div>
+
+<ng-template #noData>
+<div  style="text-align: center;font-size: 2rem;">
+  <strong>No Orders Found</strong> 
 </div>
-
-
+</ng-template>

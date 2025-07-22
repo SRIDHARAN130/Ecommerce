@@ -1,1 +1,179 @@
-<p>products works!</p>
+<mat-tab-group class="custom-tab-group">
+
+    <mat-tab >
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <img src="public/logos/mobile_logo.jpg" width="54" height="54" />
+            <p>Mobiles</p>
+          </div>
+        </ng-template>
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+            <mat-card class="card"  *ngFor="let mobile of mobileProducts"> 
+                <!-- <div *ngIf="mobile.category === 'Mobile'"> -->
+                <div class="group">
+                <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+                <div class="details">
+                  <a (click)="show(mobile)">
+                    <mat-card-content>
+                      <p class="title">{{ mobile.name }}</p>
+                      <strong>₹{{ mobile.price }}</strong>
+                      <p class="desc">{{ mobile.description }}</p>
+                    </mat-card-content>
+                  </a>   
+                <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                    <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                    <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+              </mat-card-actions>
+                </div>
+                </div>
+            <!-- </div> -->
+            </mat-card>
+            </div>
+      </mat-tab>
+
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+          <img src="public/logos/tws.jpg" width="54" height="54" />
+          <p>TWS</p>
+        </div>
+      </ng-template>
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <mat-card class="card"  *ngFor="let mobile of twsProducts"> 
+            <div class="group">
+            <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+            <div class="details">
+              <a (click)="show(mobile)">
+                <mat-card-content>
+                  <p class="title">{{ mobile.name }}</p>
+                  <strong>₹{{ mobile.price }}</strong>
+                  <p class="desc">{{ mobile.description }}</p>
+                </mat-card-content>
+              </a>   
+            <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+          </mat-card-actions>
+            </div>
+            </div>
+        </mat-card>
+        </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+          <img src="public/logos/jbl.jpg" width="54" height="54" />
+          <p>Speakers</p>
+        </div>
+      </ng-template>
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <mat-card class="card"  *ngFor="let mobile of speakerProducts"> 
+            <div class="group">
+            <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+            <div class="details">
+              <a (click)="show(mobile)">
+                <mat-card-content>
+                  <p class="title">{{ mobile.name }}</p>
+                  <strong>₹{{ mobile.price }}</strong>
+                  <p class="desc">{{ mobile.description }}</p>
+                </mat-card-content>
+              </a>   
+            <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+          </mat-card-actions>
+            </div>
+            </div>
+        </mat-card>
+        </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="tab-label">
+          <img src="public/logos/watches.jpg" width="54" height="54" />
+          <p>Watches</p>
+        </div>
+      </ng-template>
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <mat-card class="card"  *ngFor="let mobile of watchProducts"> 
+            <div class="group">
+            <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+            <div class="details">
+              <a (click)="show(mobile)">
+                <mat-card-content>
+                  <p class="title">{{ mobile.name }}</p>
+                  <strong>₹{{ mobile.price }}</strong>
+                  <p class="desc">{{ mobile.description }}</p>
+                </mat-card-content>
+              </a>   
+            <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+          </mat-card-actions>
+            </div>
+            </div>
+        </mat-card>
+        </div>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <img src="public/logos/furniture.jpg" width="54" height="54" />
+            <p>Furnitures</p>
+          </div>
+        </ng-template>
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+            <mat-card class="card"  *ngFor="let mobile of furnitureProducts"> 
+                <div class="group">
+                <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+                <!-- src="public/images/tws/boat_141.jpg" -->
+                <div class="details">
+                  <a (click)="show(mobile)">
+                    <mat-card-content>
+                      <p class="title">{{ mobile.name }}</p>
+                      <strong>₹{{ mobile.price }}</strong>
+                      <p class="desc">{{ mobile.description }}</p>
+                    </mat-card-content>
+                  </a>                   
+                <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                    <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                    <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+              </mat-card-actions>
+                </div>
+                </div>
+            </mat-card>
+            </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="tab-label">
+            <img src="public/logos/tv.jpg" width="54" height="54" />
+            <p>TV</p>
+          </div>
+        </ng-template>
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+            <mat-card class="card"  *ngFor="let mobile of tvProducts"> 
+                <div class="group">
+                <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+                <div class="details">
+                  <a (click)="show(mobile)">
+                    <mat-card-content>
+                      <p class="title">{{ mobile.name }}</p>
+                      <strong>₹{{ mobile.price }}</strong>
+                      <p class="desc">{{ mobile.description }}</p>
+                    </mat-card-content>
+                  </a>   
+                <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+                    <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+                    <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+              </mat-card-actions>
+                </div>
+                </div>
+            </mat-card>
+            </div>
+      </mat-tab>
+  
+  </mat-tab-group>
+  

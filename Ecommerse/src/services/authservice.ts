@@ -45,7 +45,7 @@ export class Authservice {
   }
 
   getToken(): string|null{
-    return localStorage.getItem(this.tokenKey)
+    return localStorage.getItem('tokenKey')
   }
 
   logout(){

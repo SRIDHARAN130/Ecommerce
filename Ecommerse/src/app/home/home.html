@@ -1,75 +1,202 @@
-<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;">
+<div class="banner-wrapper">
+    <button class="banner-btn left" (click)="bannerLeft()">&#8249;</button>
+    <div class="banner-container" #bannerContainer>
+        <img class="image" *ngFor="let img of images" [src]="img" class="carousel-img" />
+      </div>
+    <button class="banner-btn right" (click)="bannerRight()">&#8250;</button>
+</div>
+&nbsp;&nbsp;
 
- <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Mobiles</p>
 
-<div class="card-container">
+<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 0.4rem;margin-top: 40px; border: 1px solid lightblue;">
 
+ <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic;margin-top: 5px; font-size: 1.5rem;">Mobiles</p>
+
+ <div class="carousel-wrapper">
+    <button class="scroll-btn left" (click)="scrollLeft()">&#8249;</button>
+
+    <div class="card-scroll-container"  #scrollContainer *ngIf="mobiles && mobiles.length > 0">
     <mat-card class="card" *ngFor="let mobile of mobiles"> 
-        <img mat-card-img class="img" [src]="mobile.image" alt="mobile image">
-        <mat-card-content>
-            <p>{{mobile.title}}</p>
-            <strong>from {{mobile.price}}</strong>
-            <mat-card-actions style="display: flex;flex-direction: column; gap: 10px;"> 
-                  <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
-                  <button mat-raised-button  color="primary" (click)="carts(mobile)">cart</button>
-            </mat-card-actions>
-        </mat-card-content>
+        <div class="group">
+        <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+        <div class="details">
+          <a (click)="show(mobile)">
+            <mat-card-content>
+              <p class="title">{{ mobile.name }}</p>
+              <strong>₹{{ mobile.price }}</strong>
+              <p class="desc">{{ mobile.description }}</p>
+            </mat-card-content>
+          </a>   
+        <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+            <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+            <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+      </mat-card-actions>
+        </div>
+        </div>
     </mat-card>
     </div>
-</div>
- <!-- &nbsp;&nbsp;&nbsp;
-<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 1rem; border: 1px solid lightblue;">
 
-    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Trending Gadgets & Appliances</p>
+    <button class="scroll-btn right" (click)="scrollRight()">&#8250;</button>
+</div>
+
+</div>
+&nbsp;&nbsp;&nbsp;
+
+
+
+<div style="text-align: center;" >
+    <img src="public/logos/fro.jpg" style="width: 40%; height: 300px;" alt="front-logo">
+</div>
+
+<h1 style="text-align: center; color: blue;margin-top: 80px;">&nbsp;<strong>TOP PRODUCTS</strong>&nbsp;</h1>
+
+
+<div style="display: flex;flex-direction: row;gap: 5rem;flex-wrap: wrap;justify-content: center;">
+
+<div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;">
+    <a [routerLink]="(['/dashboard/products'])">
+        <img 
+          src="public/logos/mobile_logo.jpg" 
+          alt="front-logo"
+          style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+        />
+      </a>
+   <p style="text-align: center;"><strong>MOBILES</strong></p>
+</div>
+
+<div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;margin-right: 30px;">
+    <a [routerLink]="(['/dashboard/products'])">
+        <img 
+          src="public/logos/jbl.jpg" 
+          alt="front-logo"
+          style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+        />
+      </a>
+   <p style="text-align: center;"><strong>SPEAKERS</strong></p>
+</div>
+
+<div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;">
+    <a [routerLink]="(['/dashboard/products'])">
+        <img 
+          src="public/logos/tvs.jpg" 
+          alt="front-logo"
+          style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+        />
+      </a>
+   <p style="text-align: center;"><strong>TV's</strong></p>
+</div>
+
+</div>
+
+
+<div style="display: flex;flex-direction: row;gap: 5rem;flex-wrap: wrap;justify-content: center;">
+
+
+  <div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;">
+    <a [routerLink]="(['/dashboard/products'])">
+        <img 
+          src="public/logos/watch.jpg" 
+          alt="front-logo"
+          style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+        />
+      </a>
+   <p style="text-align: center;"><strong>WATCHES</strong></p>
+</div>
+
+<div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;">
+  <a [routerLink]="(['/dashboard/products'])">
+      <img 
+        src="public/logos/furniture.jpg" 
+        alt="front-logo"
+        style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+      />
+    </a>
+ <p style="text-align: center;"><strong>FURNITURES</strong></p>
+</div>
+
+
+<div style="display: flex;flex-direction:column;margin-top: 40px;margin-left: 30px;">
+  <a [routerLink]="(['/dashboard/products'])">
+      <img 
+        src="public/logos/twss.jpg" 
+        alt="front-logo"
+        style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #007bff;"
+      />
+    </a>
+ <p style="text-align: center;"><strong>TWS</strong></p>
+</div>
+
+</div>
+
+
+
+
+<div style="background-color: rgb(242, 248, 252);border-radius: 10px; padding: 0.5rem;margin-top: 30px; border: 1px solid lightblue;">
+
+    <p style="padding-bottom: 0rem; font-weight: bold; color: blue; font-style: italic; font-size: 1.5rem;">Furnitures</p>
    
-   <div class="card-container">
+    <div class="carousel-wrapper">
+       <button class="scroll-btn left" (click)="scrollfurnLeft()">&#8249;</button>
    
-       <mat-card class="card">
-           <img mat-card-img class="img" src="/assets/images/clock.jpg" alt="mobile image">
-           <mat-card-content>
-               <p>Clock</p>
-               <strong>from 149</strong>
-               <mat-card-actions> 
-                     <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-               </mat-card-actions>
-           </mat-card-content>
-       </mat-card>
-       &nbsp;&nbsp;&nbsp;
-       <mat-card class="card">
-           <img mat-card-img class="img" src="/assets/images/plant.jpg" alt="mobile image">
-           <mat-card-content>
-               <p>Plant</p>
-               <strong>from 300</strong>
-               <mat-card-actions>
-         
-           <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-               </mat-card-actions>
-           </mat-card-content>
-       </mat-card>
-       &nbsp;&nbsp;&nbsp;
-       <mat-card class="card">
-           <img mat-card-img class="img" src="/assets/images/bottles.jpg" alt="mobile image">
-           <mat-card-content>
-               <p>Bottles</p>
-               <strong>from 199</strong>
-               <mat-card-actions>
-         
-           <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-               </mat-card-actions>
-           </mat-card-content>
-       </mat-card>
-       &nbsp;&nbsp;&nbsp;
-       <mat-card class="card">
-           <img mat-card-img class="img" src="/assets/images/torch.jpg" alt="mobile image">
-           <mat-card-content>
-               <p>Torch</p>
-               <strong>from 139</strong>
-               <mat-card-actions>
-         
-           <button mat-raised-button style="  align-self: center;" color="primary">buy</button>
-               </mat-card-actions>
-           </mat-card-content>
+       <div class="card-scroll-container"  #scrollfurnitureContainer *ngIf="mobiles && mobiles.length > 0">
+       <mat-card class="card" *ngFor="let mobile of furnitureProducts"> 
+           <div class="group">
+           <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
+           <div class="details">
+            <a (click)="show(mobile)">
+              <mat-card-content>
+                <p class="title">{{ mobile.name }}</p>
+                <strong>₹{{ mobile.price }}</strong>
+                <p class="desc">{{ mobile.description }}</p>
+              </mat-card-content>
+            </a>   
+           <mat-card-actions style="display: flex; gap: 10px;margin-top: auto;"> 
+               <button mat-raised-button  color="primary" (click)="product(mobile)">buy</button>
+               <button mat-raised-button  color="primary" (click)="cartt(mobile)">cart</button>
+         </mat-card-actions>
+           </div>
+           </div>
        </mat-card>
        </div>
-   </div> -->
+   
+       <button class="scroll-btn right" (click)="scrollfurnRight()">&#8250;</button>
+   </div>
+   
+   </div>
 
+<!-- <p>{{mobiles}}</p> -->
+<!-- <strong>from {{mobiles.price}}</strong>
+<p>{{mobiles.description}}</p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

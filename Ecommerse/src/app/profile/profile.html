@@ -1,0 +1,38 @@
+<div class="container" *ngIf="user && user.length === 0">
+    <form class="form" [formGroup]="formValues" (ngSubmit)="submit()">
+    
+        <h3  class="title">Profile</h3>
+    
+      <mat-form-field >
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" formControlName="name" placeholder="Enter your Name">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput type="text" name="address" formControlName="address" placeholder="Enter your Address">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="number" name="mobile" formControlName="mobile" placeholder="Enter your Mobile No">
+      </mat-form-field>
+    
+      <button type="submit" class="button" mat-raised-button>Submit</button>
+    
+    </form>
+    </div> 
+    
+    <div *ngIf="user && user.length !== 0" style="align-items: center;">
+<mat-card style="width: 30%;margin: auto;margin-top:200px; border: 1px solid rgb(98, 152, 232);border-radius: 20px;box-shadow: 1px 4px 8px 3px lightblue;">
+  <p style="text-align: center;color: blue;font-size: 1.3rem;"><strong>PROFILE</strong></p>
+  <mat-card-content style="display: flex;flex-direction: column;gap: 0rem;flex-wrap: wrap;">
+    <p><strong style="font-size: 1.2rem;">Name:</strong>&nbsp;{{user[0].name}}</p>
+    <p><strong style="font-size: 1.2rem;">Address:</strong>&nbsp;{{user[0].address}}</p>
+    <p><strong style="font-size: 1.2rem;"> Mobile:</strong>&nbsp;{{user[0].mobile}}</p>
+  </mat-card-content>
+</mat-card>
+</div>
+    
+    
+    

@@ -6,7 +6,7 @@ import { shareImports } from '../../sharedModules';
 
 @Component({
   selector: 'app-register',
-  imports: [shareImports],
+  imports: [...shareImports],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })

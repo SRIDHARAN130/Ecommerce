@@ -1,71 +1,67 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Checkout, products } from '../../services/checkout';
 import { shareImports } from '../../sharedModules';
-import { ActivatedRoute } from '@angular/router';
-import { Order } from '../../services/orders';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from '../../services/orders-service';
+import { ProductService } from '../../services/product-service';
+import { Product } from '../../models/product';
+import { MatDialog } from '@angular/material/dialog';
+import {PaymentDialog} from '../payment-dialog/payment-dialog';
 
 @Component({
   selector: 'app-check-out',
-  imports: [shareImports],
+  imports: [...shareImports],
   templateUrl: './check-out.html',
   styleUrl: './check-out.css'
 })
 export class CheckOut implements OnInit {
 
-  see:boolean = false
-
   selectedId:number = 0
 
-  constructor(private check:Checkout,private active:ActivatedRoute ,private orders:Order){}
+  constructor(private products:ProductService,private router:Router,private check:Checkout,private active:ActivatedRoute ,private cdr: ChangeDetectorRef,private dialog: MatDialog ){}
 
-  mobiles:products[] = [
-    // {
-    //   id:0,
-    //   title:'',
-    //   price:0,
-    //   image:''
-    // }
-  ]
+  mobiles:Product[] | null =null
 
   ngOnInit(): void {
 
-      // this.selectedId =  Number(this.active.snapshot.queryParamMap.get('id'))
+    this.selectedId =  Number(this.active.snapshot.paramMap.get('id'))
 
-      // console.log(this.selectedId)
-
-      // this.check.product$.subscribe((res) => {
-      //   const filtered = res.filter(p => p.id === this.selectedId);
-      //   console.log('Filtered:', filtered);
-    
-      //   this.mobiles = filtered;
-    
-      //   // Force update UI
-      //   this.cdr.detectChanges();
-      // const filtered  = this.check.getProduct(this.selectedId)
-
-      //   this.mobiles = filtered;
+    console.log(this.selectedId)
+  
+    this.products.getProductsById(this.selectedId).subscribe(
+      (res)=>{
+        console.log(res)
+           this.mobiles = res
+           this.cdr.detectChanges();
+      }
+    )
 
 }
 
-show(){
 
-  this.see = true
+// order(mobile:Product){
 
-  console.log('this.selectedId')
+//   this.router.navigate(['/orders',mobile.product_id])
+
+// }
 
 
-  this.selectedId =  Number(this.active.snapshot.paramMap.get('id'))
+order(mobile: Product) {
+  const dialogRef = this.dialog.open(PaymentDialog, {
+    width: '400px'
+  });
 
-  console.log(this.selectedId)
+  dialogRef.afterClosed().subscribe(paymentType => {
+    if (paymentType) {
+      this.router.navigate(['/orders', mobile.product_id], {
+        queryParams: { payment_type: paymentType }
+      });
+    }
+  });
 
-  const filtered  = this.check.getProduct(this.selectedId)
-
-  this.mobiles = filtered;
 }
 
-order(mobile:products){
-     this.orders.sendProduct(mobile)
-}
+
 
 }
 

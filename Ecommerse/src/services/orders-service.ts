@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { products } from './checkout';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrderService {
+  
+
+  constructor(private http:HttpClient ){}
+
+
+  apiUrl = 'http://localhost:5000/order'
+
+
+    getOrder():Observable<Product[]>{
+      return this.http.get<Product[]>(this.apiUrl)
+    }
+
+    createOrder(id: number, payment_type: string): Observable<any> {
+      return this.http.post(this.apiUrl, {
+        product_id: id,
+        payment_type: payment_type
+      });
+    }
+    
+
+    removeOrder(id:number):Observable<any>{
+      return this.http.delete(`${this.apiUrl}/${id}`)
+    }
+}
+
