@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, delay, map, Observable, of, throwError } from 'rxjs';
+import { environment } from '../environments/environment.prod';
 // import {login} form 'src/models/login'
 
 @Injectable({
@@ -13,7 +14,9 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'https://ecommerse-backend-dbno.onrender.com/user/login'
+  // apiUrl = 'https://ecommerse-backend-dbno.onrender.com/user/login'
+
+  private apiUrl = environment.apiUrl;
 
   apiUrl2 = 'https://ecommerse-backend-dbno.onrender.com/user/register'
 
@@ -21,7 +24,7 @@ export class Authservice {
 
   login(user:{email:string,password:string}):Observable<any>{
 
-        return this.http.post<{token:string}>(this.apiUrl,user).pipe(
+        return this.http.post<{token:string}>(`${this.apiUrl}/user/login`,user).pipe(
           map((res)=>{
               localStorage.setItem('tokenKey',res.token)
               console.log('token :',res.token)

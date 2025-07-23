@@ -27,6 +27,12 @@
           },
           "configurations": {
             "production": {
+              "optimization": {
+  "fonts": {
+    "inline": false
+  }
+},
+
               "budgets": [
                 {
                   "type": "initial",
