@@ -13,9 +13,9 @@ export class Authservice {
 
   tokenKey = 'auth-token'
 
-  apiUrl = 'http://localhost:5000/user/login'
+  apiUrl = 'https://ecommerse-backend-dbno.onrender.com/user/login'
 
-  apiUrl2 = 'http://localhost:5000/user/register'
+  apiUrl2 = 'https://ecommerse-backend-dbno.onrender.com/user/register'
 
 
 
