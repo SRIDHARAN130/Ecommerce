@@ -18,7 +18,7 @@ export class Authservice {
 
   private apiUrl = environment.apiUrl;
 
-  apiUrl2 = 'https://ecommerse-backend-dbno.onrender.com/user/register'
+  // apiUrl2 = 'https://ecommerse-backend-dbno.onrender.com/user/register'
 
 
 
@@ -35,9 +35,9 @@ export class Authservice {
 
   register(user:{email:string,password:string}):Observable<any>{
 
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<any>(this.apiUrl2,user)
+    return this.http.post<any>(`${this.apiUrl}/user/register`,user)
 }
 
  

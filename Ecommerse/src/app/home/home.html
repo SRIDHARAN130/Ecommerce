@@ -14,8 +14,12 @@
 
  <div class="carousel-wrapper">
     <button class="scroll-btn left" (click)="scrollLeft()">&#8249;</button>
-
-    <div class="card-scroll-container"  #scrollContainer *ngIf="mobiles && mobiles.length > 0">
+    <ng-template #noData>
+      <div  style="text-align: center;font-size: 2rem;">
+        <strong>No MOBILES Found</strong> 
+      </div>
+      </ng-template>
+    <div class="card-scroll-container"  #scrollContainer *ngIf="mobiles && mobiles.length > 0 else noData">
     <mat-card class="card" *ngFor="let mobile of mobiles"> 
         <div class="group">
         <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -34,6 +38,7 @@
         </div>
         </div>
     </mat-card>
+
     </div>
 
     <button class="scroll-btn right" (click)="scrollRight()">&#8250;</button>
@@ -137,8 +142,12 @@
    
     <div class="carousel-wrapper">
        <button class="scroll-btn left" (click)="scrollfurnLeft()">&#8249;</button>
-   
-       <div class="card-scroll-container"  #scrollfurnitureContainer *ngIf="mobiles && mobiles.length > 0">
+       <ng-template #noData>
+        <div  style="text-align: center;font-size: 2rem;">
+          <strong>No FURNITURES Found</strong> 
+        </div>
+        </ng-template>
+       <div class="card-scroll-container"  #scrollfurnitureContainer *ngIf="mobiles && mobiles.length > 0; else noData">
        <mat-card class="card" *ngFor="let mobile of furnitureProducts"> 
            <div class="group">
            <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -156,6 +165,7 @@
          </mat-card-actions>
            </div>
            </div>
+         
        </mat-card>
        </div>
    

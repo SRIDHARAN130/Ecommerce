@@ -7,7 +7,7 @@
             <p>Mobiles</p>
           </div>
         </ng-template>
-        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
             <mat-card class="card"  *ngFor="let mobile of mobileProducts"> 
                 <!-- <div *ngIf="mobile.category === 'Mobile'"> -->
                 <div class="group">
@@ -29,6 +29,11 @@
             <!-- </div> -->
             </mat-card>
             </div>
+            <ng-template #noData>
+              <div  style="text-align: center;font-size: 2rem;">
+                <strong>No Mobiles Found</strong> 
+              </div>
+              </ng-template>
       </mat-tab>
 
     <mat-tab >
@@ -38,7 +43,7 @@
           <p>TWS</p>
         </div>
       </ng-template>
-      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
         <mat-card class="card"  *ngFor="let mobile of twsProducts"> 
             <div class="group">
             <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -58,6 +63,11 @@
             </div>
         </mat-card>
         </div>
+        <ng-template #noData>
+          <div  style="text-align: center;font-size: 2rem;">
+            <strong>No TWS Found</strong> 
+          </div>
+          </ng-template>
     </mat-tab>
   
     <mat-tab>
@@ -67,7 +77,7 @@
           <p>Speakers</p>
         </div>
       </ng-template>
-      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
         <mat-card class="card"  *ngFor="let mobile of speakerProducts"> 
             <div class="group">
             <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -87,6 +97,11 @@
             </div>
         </mat-card>
         </div>
+        <ng-template #noData>
+          <div  style="text-align: center;font-size: 2rem;">
+            <strong>No SPEAKERS Found</strong> 
+          </div>
+          </ng-template>
     </mat-tab>
   
     <mat-tab>
@@ -96,7 +111,7 @@
           <p>Watches</p>
         </div>
       </ng-template>
-      <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+      <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
         <mat-card class="card"  *ngFor="let mobile of watchProducts"> 
             <div class="group">
             <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -116,7 +131,13 @@
             </div>
         </mat-card>
         </div>
+        <ng-template #noData>
+          <div  style="text-align: center;font-size: 2rem;">
+            <strong>No WATCHES Found</strong> 
+          </div>
+          </ng-template>
     </mat-tab>
+
     <mat-tab>
         <ng-template mat-tab-label>
           <div class="tab-label">
@@ -124,7 +145,7 @@
             <p>Furnitures</p>
           </div>
         </ng-template>
-        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
             <mat-card class="card"  *ngFor="let mobile of furnitureProducts"> 
                 <div class="group">
                 <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -145,7 +166,14 @@
                 </div>
             </mat-card>
             </div>
+            <ng-template #noData>
+              <div  style="text-align: center;font-size: 2rem;">
+                <strong>No FURNITURES Found</strong> 
+              </div>
+              </ng-template>
       </mat-tab>
+
+
       <mat-tab>
         <ng-template mat-tab-label>
           <div class="tab-label">
@@ -153,7 +181,7 @@
             <p>TV</p>
           </div>
         </ng-template>
-        <div class="card-container" *ngIf="mobiles && mobiles.length > 0" >
+        <div class="card-container" *ngIf="mobiles && mobiles.length > 0 else noData" >
             <mat-card class="card"  *ngFor="let mobile of tvProducts"> 
                 <div class="group">
                 <img mat-card-img class="img" [src]="mobile.image_url" alt="mobile image">
@@ -173,6 +201,11 @@
                 </div>
             </mat-card>
             </div>
+            <ng-template #noData>
+              <div  style="text-align: center;font-size: 2rem;">
+                <strong>No TV's Found</strong> 
+              </div>
+              </ng-template>
       </mat-tab>
   
   </mat-tab-group>
